@@ -1,0 +1,74 @@
+digraph graphname {
+	graph [bb="0,0,874.06,106",
+		compound=True,
+		rank=same,
+		rankdir=LR,
+		ranksep=0.2
+	];
+	node [label="\N"];
+	subgraph cluster_camera {
+		graph [bb="0,0,270,130",
+			compound=True,
+			label=camera,
+			lheight=0.21,
+			lp="100,5",
+			lwidth=0.56,
+			rank=same,
+			rankdir=LR,
+			ranksep=0.2,
+			style=bold
+		];
+		transmit_front_camera	 [URL=transmit_front_camera,
+			height=0.5,
+			label="transmit_front_camera",
+			pos="129.34,88",
+			shape=ellipse,
+			tooltip="transmit_front_camera",
+			width=3.5927];
+		transmit_image_node	 [URL=tansmit_image_node,
+			height=0.5,
+			label="tansmit_image_node",
+			pos="129.34,34",
+			shape=ellipse,
+			tooltip="tansmit_image_node",
+			width=3.2317];
+
+	}
+	subgraph process {
+		graph [bb="650,0,870,70",
+			compound=True,
+			label=process,
+			lheight=0.21,
+			lp="800,5",
+			lwidth=0.56,
+			rank=same,
+			rankdir=LR,
+			ranksep=0.2,
+			style=bold
+		];
+		image_process	 [URL=image_process,
+			height=0.5,
+			label="image_process",
+			pos="758.37,34",
+			shape=ellipse,
+			tooltip="image_process",
+			width=3.2136];
+	}
+	front_camera_topic -> image_process	 [colorB=0,
+		colorG=0,
+		colorR=255,
+		label="\n10.0 Hz",
+		lp="556.18,49.5",
+		penwidth=1,
+		style=dashed
+		pos="e,642.45,34 461.7,34 512.21,34 576.46,34 632.15,34"];
+	transmit_image_node -> front_camera_topic	 [penwidth=1,
+		pos="e,283.55,34 245.71,34 254.95,34 264.24,34 273.35,34"];
+	front_camera_topic		 [URL=topic_3A__camera__fv_color__compressed,
+		height=0.5,
+		label="/camera/fv_color/compressed",
+		pos="372.68,34",
+		shape=box,
+		tooltip="topic:/camera/fv_color/compressed",
+		width=2.4722];
+}
