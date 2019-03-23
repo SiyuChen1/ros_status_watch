@@ -37,6 +37,8 @@ from python_qt_binding.QtWidgets import (QGraphicsPathItem,
 
 from qt_dotgraph.graph_item import GraphItem
 
+from filter_digtal import filter_digtal
+
 
 class EdgeItem(GraphItem):
 
@@ -111,7 +113,7 @@ class EdgeItem(GraphItem):
             parts = coordinates.pop(0).split(',')
             point2 = QPointF(float(parts[0]), -float(parts[1]))
             parts = coordinates.pop(0).split(',')
-            point3 = QPointF(float(parts[0]), -float(parts[1]))
+            point3 = QPointF(float(parts[0]), -float(filter_digtal(parts[1])))
             path.cubicTo(point1, point2, point3)
 
         self._arrow = None
